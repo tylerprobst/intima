@@ -7,5 +7,13 @@ application.config.from_object('config')
 def index():
 	return render_template('index.html')
 
+@application.route('/assets/<path:path>')
+def assets(path):
+	return send_from_directory('assets', path)
+
+@application.route('/uploads/<path:path>')
+def uploads(path):
+	return send_from_directory('uploads', path)
+
 if __name__ =='__main__':
 	application.run()
